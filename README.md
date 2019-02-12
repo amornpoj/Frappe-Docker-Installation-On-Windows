@@ -50,3 +50,14 @@
 - bench update
 - bench update --patch
 - bench start
+
+
+# Downgrade Version
+- docker exec -it frappe bash
+- cd /home/frappe/erpnext/apps/frappe/
+- git branch -v
+- git stash
+- git reset --hard HEAD
+- git checkout -f d81797c7d
+- cd /home/frappe/erpnext/
+- bench build && bench migrate && bench restart
