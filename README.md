@@ -1,11 +1,11 @@
-# Clone
+# Clone Repository
 ```
 git clone --branch windows https://github.com/sopanawit/frappe_docker.git
 cd .\frappe_docker\
 docker-compose up -d
 ```
- 
- 
+
+
 # Set MariaDB
 ```
 - docker exec -it mariadb bash
@@ -14,6 +14,8 @@ docker-compose up -d
 - cd /etc/mysql
 - vim my.cnf
 ```
+Add the following lines under the [mysqld] line.
+```
 [mysqld]
 innodb-file-format=barracuda
 innodb-file-per-table=1
@@ -21,12 +23,16 @@ innodb-large-prefix=1
 character-set-client-handshake = FALSE
 character-set-server = utf8mb4
 collation-server = utf8mb4_unicode_ci
-
+```
+Also, add the following line under the [mysql] line.
+```
 [mysql]
 default-character-set = utf8mb4
-exit
+```
+Exit and restart docker-compose.
+```
 docker-compose restart
- 
+```
  
 # Set Frappe Bash & Install Erpnext
 - docker exec -it frappe bash
