@@ -31,57 +31,34 @@ default-character-set = utf8mb4
 ```
 Exit and restart docker-compose.
 ```
+exit
 docker-compose restart
 ```
  
-# Set Frappe Bash & Install Erpnext
-- docker exec -it frappe bash
-- cd /home/frappe/ && bench init erpnext
-- sudo apt update
-- sudo pip install -e bench-repo
-- sudo npm install -g yarn
-- exit
-
-
-# Config MariaDB (Permission)
-- docker exec -it mariadb bash
-- apt-get -y update
-- apt-get -y install vim
-- cd /etc/mysql/
-- chmod -R 0444 ./conf.d/*
-- exit
-- docker-compose restart
-
-
-# Copy File From Frappe-Bench
-- docker exec -it frappe bash
-- mv Procfile_docker Procfile && mv sites/common_site_config_docker.json sites/common_site_config.json && bench set-mariadb-host mariadb
-- cp Procfile ../erpnext/
-- cp sites/common_site_config.json ../erpnext/sites/
-- cd /home/frappe/ && sudo chmod -R 777 erpnext
-- exit
  
- 
-# Create New Site  &&  Install ErpNext App
-- docker exec -it frappe bash
-- cd /home/frappe/erpnext
-- bench new-site site1.local
-- bench get-app erpnext https://github.com/frappe/erpnext
-- bench --site site1.local install-app erpnext
-- cd /home/frappe/
-- sudo chown -R frappe:frappe ~/.config
-- cd /home/frappe/erpnext
-- bench update
-- bench update --patch
-- bench start
+# Install Frappe
+```
+docker exec -it frappe bash
+mv Procfile_docker Procfile
+mv sites/common_site_config_docker.json sites/common_site_config.json
+bench set-mariadb-host mariadb
+cd /home/frappe
+bench init frappe-bench --ignore-exist --skip-redis-config-generation --frappe-path=[URL Cappuccino] --frappe-branch=ktb-dorm
+exit
+```
 
 
-# Downgrade Version
-- docker exec -it frappe bash
-- cd /home/frappe/erpnext/apps/frappe/
-- git branch -v
-- git stash
-- git reset --hard HEAD
-- git checkout -f d81797c7d
-- cd /home/frappe/erpnext/
-- bench build && bench migrate && bench restart
+
+# Create a new Frappe site & install dorm app
+```
+docker exec -it frappe bash
+bench build
+bench update --requirements
+bench new-site frappe.local
+bench get-app roommage [URL Roommage Web App] --branch=develop
+bench --site frappe.local install-app roommage
+```
+You can start the application immediately to check if the application installed successfully.
+```
+bench start
+```
