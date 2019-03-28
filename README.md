@@ -29,6 +29,7 @@ default-character-set = utf8mb4
 ```
 Restart docker compose.
 ```
+exit
 docker-compose restart
 ```
  
