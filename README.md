@@ -46,12 +46,17 @@ docker-compose restart
 
 
 
-# Create a new Frappe site & install dorm app
+# Create a new site
 ```
 - docker exec -it frappe bash
 - bench build
 - bench update --requirements
 - bench new-site frappe.local
+```
+
+
+# Install Dorm app
+```
 - bench get-app roommage [URL Roommage Web App] --branch=develop
 - bench --site frappe.local install-app roommage
 ```
