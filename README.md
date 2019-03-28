@@ -1,13 +1,31 @@
-# Clone Frappe-Docker
-- git clone https://github.com/frappe/frappe_docker.git
-- cd .\frappe_docker\
-- docker-compose up -d
+# Clone
+```
+git clone --branch windows https://github.com/sopanawit/frappe_docker.git
+cd .\frappe_docker\
+docker-compose up -d
+```
  
  
-# Set Root Frappe Bash
-- docker exec -itu root frappe bash
-- cd /home/frappe/ && chown -R frappe:frappe ./*
-- exit
+# Set MariaDB
+```
+- docker exec -it mariadb bash
+- apt-get -y update
+- apt-get -y install vim
+- cd /etc/mysql
+- vim my.cnf
+```
+[mysqld]
+innodb-file-format=barracuda
+innodb-file-per-table=1
+innodb-large-prefix=1
+character-set-client-handshake = FALSE
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+
+[mysql]
+default-character-set = utf8mb4
+exit
+docker-compose restart
  
  
 # Set Frappe Bash & Install Erpnext
