@@ -1,8 +1,8 @@
 # Clone Repository
 ```
-git clone --branch windows https://github.com/sopanawit/frappe_docker.git
-cd .\frappe_docker\
-docker-compose up -d
+- git clone --branch windows https://github.com/sopanawit/frappe_docker.git
+- cd .\frappe_docker\
+- docker-compose up -d
 ```
 
 
@@ -16,7 +16,6 @@ docker-compose up -d
 ```
 Add the following lines under the [mysqld] line.
 ```
-[mysqld]
 innodb-file-format=barracuda
 innodb-file-per-table=1
 innodb-large-prefix=1
@@ -26,37 +25,34 @@ collation-server = utf8mb4_unicode_ci
 ```
 Also, add the following line under the [mysql] line.
 ```
-[mysql]
 default-character-set = utf8mb4
 ```
-Exit and restart docker-compose.
+Restart docker compose.
 ```
-exit
 docker-compose restart
 ```
  
  
 # Install Frappe
 ```
-docker exec -it frappe bash
-mv Procfile_docker Procfile
-mv sites/common_site_config_docker.json sites/common_site_config.json
-bench set-mariadb-host mariadb
-cd /home/frappe
-bench init frappe-bench --ignore-exist --skip-redis-config-generation --frappe-path=[URL Cappuccino] --frappe-branch=ktb-dorm
-exit
+- docker exec -it frappe bash
+- mv Procfile_docker Procfile
+- mv sites/common_site_config_docker.json sites/common_site_config.json
+- bench set-mariadb-host mariadb
+- cd /home/frappe
+- bench init frappe-bench --ignore-exist --skip-redis-config-generation --frappe-path=[URL Cappuccino] --frappe-branch=ktb-dorm
 ```
 
 
 
 # Create a new Frappe site & install dorm app
 ```
-docker exec -it frappe bash
-bench build
-bench update --requirements
-bench new-site frappe.local
-bench get-app roommage [URL Roommage Web App] --branch=develop
-bench --site frappe.local install-app roommage
+- docker exec -it frappe bash
+- bench build
+- bench update --requirements
+- bench new-site frappe.local
+- bench get-app roommage [URL Roommage Web App] --branch=develop
+- bench --site frappe.local install-app roommage
 ```
 You can start the application immediately to check if the application installed successfully.
 ```
