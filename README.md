@@ -56,7 +56,7 @@ docker-compose restart
 - bench set-mariadb-host mariadb
 - cd /home/frappe
 - bench init frappe-bench --ignore-exist --skip-redis-config-generation 
---frappe-path=[URL Cappuccino] --frappe-branch=ktb-dorm
+  frappe-path=[URL Cappuccino] --frappe-branch=[Branch]
 ```
 
 
@@ -65,16 +65,17 @@ docker-compose restart
 - docker exec -it frappe bash
 - bench build
 - bench update --requirements
-- bench new-site frappe.local
+- bench new-site [Site Name]
 ```
 
 
 # Install Dorm app
 ```
-- bench get-app roommage [URL Roommage Web App] --branch=develop
+- bench get-app roommage [URL Dormitory Web App] --branch=develop
 - bench --site frappe.local install-app roommage
 ```
-You can start the application immediately to check if the application installed successfully.
+You can start the application immediately to check 
+if the application installed successfully.
 ```
 bench start
 ```
@@ -82,19 +83,20 @@ bench start
 
 # Develop frappe application using Git
 ```
-frappe:~/frappe-bench$ cd apps/<app_name>
-frappe:~/frappe-bench/apps/<app_name>$ git remote -v
-frappe:~/frappe-bench/apps/<app_name>$ git remote remove upstream
-frappe:~/frappe-bench/apps/<app_name>$ git remote add origin <repository_url>
-frappe:~/frappe-bench/apps/<app_name>$ git remote -v
-frappe:~/frappe-bench/apps/<app_name>$ git fetch origin <branch_name> && git pull
-frappe:~/frappe-bench/apps/<app_name>$ git checkout <branch_name>
-frappe:~/frappe-bench/apps/<app_name>$ git status
+$ cd apps/<app_name>
+$ git remote -v
+$ git remote remove upstream
+$ git remote add origin <repository_url>
+$ git remote -v
+$ git fetch origin <branch_name> && git pull
+$ git checkout <branch_name>
+$ git status
 ```
 
 
 # Development using Remote Workspace
-Password that defined in `frappe-bench.code-workspace` is __1q2w3e4r__ but if you want to use you own password, workspace file must be fixed.
+Password that defined in `frappe-bench.code-workspace` is __1q2w3e4r__ 
+but if you want to use you own password, workspace file must be fixed.
 ```
 C:\Users\<user>\<path>\frappe_docker> docker exec -it frappe bash
 frappe:~/frappe-bench$ sudo su
