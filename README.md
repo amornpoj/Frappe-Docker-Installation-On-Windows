@@ -25,6 +25,7 @@
 - cd /etc/mysql
 - vim my.cnf
 ```
+
 Add the following lines under the [mysqld] line.
 ```
 innodb-file-format=barracuda
@@ -34,10 +35,12 @@ character-set-client-handshake = FALSE
 character-set-server = utf8mb4
 collation-server = utf8mb4_unicode_ci
 ```
+
 Also, add the following line under the [mysql] line.
 ```
 default-character-set = utf8mb4
 ```
+
 Restart docker compose.
 ```
 exit
@@ -55,7 +58,6 @@ docker-compose restart
 - bench init frappe-bench --ignore-exist --skip-redis-config-generation 
 --frappe-path=[URL Cappuccino] --frappe-branch=ktb-dorm
 ```
-
 
 
 # Create a new site
@@ -78,7 +80,7 @@ bench start
 ```
 
 
-# Develop frappe application/modules in develop branch (remote origin)
+# Develop frappe application in develop branch (remote origin)
 ```
 frappe:~/frappe-bench$ cd apps/<app_name>
 frappe:~/frappe-bench/apps/<app_name>$ git remote -v
@@ -103,7 +105,7 @@ passwd: password updated successfully
 ```
 
 
-## Open workspace file with VS code
+## Open workspace file with Visual Studio Code
 ```
 File > Open Workspace > frappe-bench.code-workspace
 ```
