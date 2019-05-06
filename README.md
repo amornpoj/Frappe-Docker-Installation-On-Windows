@@ -1,3 +1,11 @@
+# Getting Started
+```
+OS : Windows / MacOS
+Docker Desktop (recommended) or Docker Toolbox
+Docker Compose
+```
+
+
 # Clone Repository
 ```
 - git clone --branch windows https://github.com/sopanawit/frappe_docker.git
