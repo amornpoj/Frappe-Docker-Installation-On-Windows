@@ -1,8 +1,10 @@
 # Getting Started
 ```
-OS : Windows / MacOS
-Docker Desktop (recommended) or Docker Toolbox
-Docker Compose
+1. OS : Windows / MacOS
+2. Docker Toolbox
+3. Docker Compose
+4. Visual Studio Code
+5. Remote Workspace
 ```
 
 
