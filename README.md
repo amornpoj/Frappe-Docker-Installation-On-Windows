@@ -3,7 +3,7 @@
 1. OS : Windows / MacOS
 2. Docker Toolbox
 3. Docker Compose
-4. Git Bash
+4. Git
 5. Visual Studio Code
 6. Remote Workspace Extension for Visual Studio Code
 ```
@@ -80,7 +80,7 @@ bench start
 ```
 
 
-# Develop frappe application in develop branch (remote origin)
+# Develop frappe application using Git
 ```
 frappe:~/frappe-bench$ cd apps/<app_name>
 frappe:~/frappe-bench/apps/<app_name>$ git remote -v
