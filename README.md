@@ -1,10 +1,11 @@
-# Getting Started
+# Prerequsite
 ```
 1. OS : Windows / MacOS
 2. Docker Toolbox
 3. Docker Compose
-4. Visual Studio Code
-5. Remote Workspace
+4. Git Bash
+5. Visual Studio Code
+6. Remote Workspace
 ```
 
 
