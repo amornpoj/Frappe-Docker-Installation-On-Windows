@@ -5,7 +5,7 @@
 3. Docker Compose
 4. Git Bash
 5. Visual Studio Code
-6. Remote Workspace
+6. Remote Workspace Extension for Visual Studio Code
 ```
 
 
@@ -75,4 +75,35 @@ docker-compose restart
 You can start the application immediately to check if the application installed successfully.
 ```
 bench start
+```
+
+
+# Develop frappe application/modules in develop branch (remote origin)
+```
+frappe:~/frappe-bench$ cd apps/<app_name>
+frappe:~/frappe-bench/apps/<app_name>$ git remote -v
+frappe:~/frappe-bench/apps/<app_name>$ git remote remove upstream
+frappe:~/frappe-bench/apps/<app_name>$ git remote add origin <repository_url>
+frappe:~/frappe-bench/apps/<app_name>$ git remote -v
+frappe:~/frappe-bench/apps/<app_name>$ git fetch origin <branch_name> && git pull
+frappe:~/frappe-bench/apps/<app_name>$ git checkout <branch_name>
+frappe:~/frappe-bench/apps/<app_name>$ git status
+```
+
+
+# Development using Remote Workspace
+Password that defined in `frappe-bench.code-workspace` is __1q2w3e4r__ but if you want to use you own password, workspace file must be fixed.
+```
+C:\Users\<user>\<path>\frappe_docker> docker exec -it frappe bash
+frappe:~/frappe-bench$ sudo su
+frappe:~/frappe-bench$ passwd frappe
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+```
+
+
+## Open workspace file with VS code
+```
+File > Open Workspace > frappe-bench.code-workspace
 ```
