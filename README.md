@@ -55,8 +55,7 @@ docker-compose restart
 - mv sites/common_site_config_docker.json sites/common_site_config.json
 - bench set-mariadb-host mariadb
 - cd /home/frappe
-- bench init frappe-bench --ignore-exist --skip-redis-config-generation 
-  frappe-path=[URL Cappuccino] --frappe-branch=[Branch]
+- bench init frappe-bench --ignore-exist --skip-redis-config-generation --frappe-path=[URL Cappuccino] --frappe-branch=[Branch]
 ```
 
 
