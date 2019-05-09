@@ -1,14 +1,3 @@
-# Prerequsite
-```
-1. OS : Windows / MacOS
-2. Docker Toolbox
-3. Docker Compose
-4. Git
-5. Visual Studio Code
-6. Remote Workspace Extension for Visual Studio Code
-```
-
-
 # Clone Repository
 ```
 - git clone --branch windows https://github.com/sopanawit/frappe_docker.git
@@ -55,7 +44,8 @@ docker-compose restart
 - mv sites/common_site_config_docker.json sites/common_site_config.json
 - bench set-mariadb-host mariadb
 - cd /home/frappe
-- bench init frappe-bench --ignore-exist --skip-redis-config-generation --frappe-path=[URL Cappuccino] --frappe-branch=[Branch]
+- bench init frappe-bench --ignore-exist --skip-redis-config-generation 
+--frappe-path=[URL Cappuccino] --frappe-branch=[Branch]
 ```
 
 
@@ -77,36 +67,4 @@ You can start the application immediately to check
 if the application installed successfully.
 ```
 bench start
-```
-
-
-# Develop frappe application using Git
-```
-$ cd apps/<app_name>
-$ git remote -v
-$ git remote remove upstream
-$ git remote add origin <repository_url>
-$ git remote -v
-$ git fetch origin <branch_name> && git pull
-$ git checkout <branch_name>
-$ git status
-```
-
-
-# Development using Remote Workspace
-Password that defined in `frappe-bench.code-workspace` is __1q2w3e4r__ 
-but if you want to use you own password, workspace file must be fixed.
-```
-C:\Users\<user>\<path>\frappe_docker> docker exec -it frappe bash
-frappe:~/frappe-bench$ sudo su
-frappe:~/frappe-bench$ passwd frappe
-Enter new UNIX password:
-Retype new UNIX password:
-passwd: password updated successfully
-```
-
-
-## Open workspace file with Visual Studio Code
-```
-File > Open Workspace > frappe-bench.code-workspace
 ```
