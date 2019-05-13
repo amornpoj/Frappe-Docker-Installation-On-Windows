@@ -1,6 +1,0 @@
-{
-    "folders": [{
-        "uri": "sftp://frappe:1q2w3e4r@192.168.99.100:1022/home/frappe/frappe-bench?debug=1",
-        "name": "Frappe"
-    }]
-}
